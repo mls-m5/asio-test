@@ -1,0 +1,17 @@
+# Matmake file
+# https://github.com/mls-m5/matmake
+
+cppflags +=                 # c++ only flags
+cflags +=                   # c only flags
+
+config += c++14 Wall
+
+libs += -pthread
+
+includes += include
+
+client.src = src/client.cpp
+
+server.src = src/server.cpp
+
+
