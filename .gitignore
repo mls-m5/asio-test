@@ -3,5 +3,5 @@
 .settings/
 *.o
 *.d
-client
-server
+*client
+*server

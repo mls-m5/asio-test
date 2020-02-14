@@ -5,6 +5,7 @@
 #include <array>
 
 using namespace std;
+using asio::ip::tcp;
 
 // Client
 // Based on https://www.boost.org/doc/libs/1_72_0/doc/html/boost_asio/tutorial/tutdaytime1/src.html
@@ -13,11 +14,11 @@ int main(int argc, char **argv) {
 		string adress = "localhost";
 
 		asio::io_service service;
-		asio::ip::tcp::resolver resolver(service);
-		asio::ip::tcp::resolver::query query(adress, to_string(9532));
+		tcp::resolver resolver(service);
+		tcp::resolver::query query(adress, to_string(9532));
 		auto endpoints = resolver.resolve(query);
 
-		asio::ip::tcp::socket socket(service);
+		tcp::socket socket(service);
 		asio::connect(socket, endpoints);
 
 		while (true) {

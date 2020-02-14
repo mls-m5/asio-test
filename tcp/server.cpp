@@ -9,6 +9,7 @@
 #include <asio.hpp>
 
 using namespace std;
+using asio::ip::tcp;
 
 // Server
 // Based on https://www.boost.org/doc/libs/1_72_0/doc/html/boost_asio/tutorial/tutdaytime2/src.html
@@ -16,12 +17,12 @@ int main(int argc, char **argv) {
 	try {
 		asio::io_service service;
 
-		asio::ip::tcp::acceptor acceptor(service,
-				asio::ip::tcp::endpoint(asio::ip::tcp::v4(), 9532));
+		tcp::acceptor acceptor(service,
+				tcp::endpoint(tcp::v4(), 9532));
 
 
 		while(true) {
-			asio::ip::tcp::socket socket(service);
+			tcp::socket socket(service);
 			acceptor.accept(socket);
 
 			asio::error_code error;

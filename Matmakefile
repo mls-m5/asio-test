@@ -10,8 +10,11 @@ libs += -pthread
 
 includes += include
 
-client.src = src/client.cpp
+tcpclient.src = tcp/client.cpp
 
-server.src = src/server.cpp
+tcpserver.src = tcp/server.cpp
 
+udpclient.src = udp/client.cpp
+
+udpserver.src = udp/server.cpp
 
